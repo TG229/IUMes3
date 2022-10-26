@@ -1,16 +1,21 @@
 package com.example.myapplication;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 public class Person implements Serializable {
-    private String name, surname,birthDate;
+    private String name, surname;
+
+
+
+    private Calendar birthDate;
 
     public Person (){
         this.setName("");
         this.setSurname("");
-        this.setBirthDate("");
+        //this.setBirthDate("");
     }
-    public Person(String name, String surname, String birthDate) {
+    public Person(String name, String surname, Calendar birthDate) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
@@ -32,11 +37,11 @@ public class Person implements Serializable {
         this.surname = surname;
     }
 
-    public String getBirthDate() {
+    public Calendar getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Calendar birthDate) {
         this.birthDate = birthDate;
     }
 }

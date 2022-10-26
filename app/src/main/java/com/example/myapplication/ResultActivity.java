@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 
 public class ResultActivity extends AppCompatActivity {
     Person person;
@@ -37,6 +38,7 @@ public class ResultActivity extends AppCompatActivity {
     void updateTextViews(){
         resultName.setText(person.getName());
         resultSurname.setText(person.getSurname());
-        resultBirthDate.setText(person.getBirthDate());
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        resultBirthDate.setText(format.format(person.getBirthDate().getTime()));
     }
 }

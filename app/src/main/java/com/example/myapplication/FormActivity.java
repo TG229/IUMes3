@@ -1,13 +1,18 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class FormActivity extends AppCompatActivity {
 
@@ -43,7 +48,30 @@ public class FormActivity extends AppCompatActivity {
                 }
             }
         });
+
+        editDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b){
+                    showDialog();
+                }
+            }
+        });
+
+
     }
+
+    void doPositiveClick(Calendar date){
+        this.person.setBirthDate(date);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        editDate.setText(format.format(date.getTime()));
+    }
+
+    void showDialog() {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "dialog");
+    }
+
     boolean checkInput(){
         int errors = 0;
         if(editName.getText().toString().length() == 0){
@@ -79,7 +107,6 @@ public class FormActivity extends AppCompatActivity {
         this.person.setName(name);
         String surname = this.editSurname.getText().toString();
         this.person.setSurname(surname);
-        String date = this.editDate.getText().toString();
-        this.person.setBirthDate(date);
+        //String date = this.editDate.getText().toString();
     }
 }
