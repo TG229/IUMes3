@@ -20,6 +20,17 @@
                 android:layout_height="wrap_content"
                 android:text="Inserisci i tuoi dati"
                 android:textSize="36dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Si sono verificati..."
+                android:textSize="36dp"
+                android:id="@+id/error"
+                android:background="@color/red"
+                android:gravity="center"
+                android:visibility="gone"
+                />
             
             <Space
                 android:layout_width="wrap_content"
